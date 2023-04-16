@@ -1,0 +1,21 @@
+<div>Number Of Displayed Articles :<input type="number" [(ngModel)]="NbrMaxArticles"></div>
+<fieldset  *ngFor="let a of listeArticles;let i=index">
+  <!--*ngIf="a.categorie=='Travail'"-->
+  <div [ngStyle]="{'background-color':a.categorie=='Education' ? 'blue' : 'transparent'}" *ngIf="i<NbrMaxArticles">
+  <legend >{{a.titre}}</legend>
+<table>
+  <tr>
+    <td>Auteur : </td>
+    <td>{{a.auteur}}</td>
+  </tr>
+  <tr>
+    <td>Date : </td>
+    <td>{{a.date}}</td>
+  </tr>
+  <tr>
+    <td>Contenu : </td>
+    <td>{{a.contenu}}</td>
+  </tr>
+</table>
+  </div>
+</fieldset>

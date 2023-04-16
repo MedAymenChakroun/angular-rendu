@@ -1,0 +1,32 @@
+
+<div>
+  Search By Entreprise :
+<input type="text" [(ngModel)]="searchEntreprise">
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Id</th>
+    <th scope="col">Title</th>
+    <th scope="col">Price</th>
+    <th scope="col">Etat</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let p of listeEmploi; let i=index" >
+  <tr *ngIf="p.entreprise.includes(searchEntreprise) || searchEntreprise.length==0" >
+    <th scope="row">{{i}}</th>
+    <td>{{ p.entreprise}}</td>
+    <td>{{ p.titre}}</td>
+    <td>{{ p.reference}}</td>
+    <td>{{ p.etat}}</td>
+    <td>  <button type="button" class="btn btn-success"[disabled]="p.etat==false" >Buy</button></td>
+  </tr>
+  </tbody>
+</table>
+<div>
+  Calculate Number of Offers :
+  <button type="button" class="btn btn-light" (click)="CalculateOffers()" >{{NbrOffres}}</button>
+</div>
+
